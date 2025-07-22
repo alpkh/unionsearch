@@ -1,0 +1,84 @@
+ID: root PW: dbsldhs12!
+
+sudo mysql -u root -p
+wjdqh12!
+
+CREATE USER 'unionsearch_springboot'@'localhost' IDENTIFIED BY 'DBsldhs12!';
+GRANT ALL PRIVILEGES ON *.* TO 'unionsearch_springboot'@'localhost';
+FLUSH PRIVILEGES;
+SELECT User, Host FROM mysql.user;
+
+mysql> show tables;
++-----------------------+
+| Tables_in_unionsearch |
++-----------------------+
+| positions             |
+| seminars              |
+| talents               |
+| users                 |
+| verification_code     |
++-----------------------+
+5 rows in set (0.00 sec)
+
+
+CREATE DATABASE unionsearch;
+USE unionsearch;
+
+CREATE TABLE positions (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    level VARCHAR(255) DEFAULT NULL,
+    status VARCHAR(255) DEFAULT NULL,
+    date DATE DEFAULT NULL,
+    description TEXT DEFAULT NULL
+);
+
+CREATE TABLE seminars (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    presentation_date DATE NOT NULL,
+    location VARCHAR(255) DEFAULT NULL,
+    presenter VARCHAR(255) DEFAULT NULL,
+    registrar VARCHAR(255) DEFAULT NULL
+);
+
+CREATE TABLE talents (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    position TEXT DEFAULT NULL,
+    name VARCHAR(255) DEFAULT NULL,
+    birth_year VARCHAR(255) DEFAULT NULL,
+    phone VARCHAR(255) DEFAULT NULL,
+    email VARCHAR(255) DEFAULT NULL,
+    school TEXT DEFAULT NULL,
+    experience TEXT DEFAULT NULL,
+    expertise TEXT DEFAULT NULL,
+    status TEXT DEFAULT NULL,
+    source TEXT DEFAULT NULL,
+    resume_number TEXT DEFAULT NULL,
+    contact_person VARCHAR(255) DEFAULT NULL,
+    job_description TEXT DEFAULT NULL,
+    qualifications TEXT DEFAULT NULL,
+    major_and_career TEXT DEFAULT NULL
+);
+
+CREATE TABLE users (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE verification_code (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    code VARCHAR(255) NOT NULL,
+    created_at DATETIME(6) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
+
+
+
+

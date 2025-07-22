@@ -1,0 +1,1 @@
+cd ./vuejs-unionsearch/ && npm run build && cd .. &&  rm -rf ./src/main/resources/static/* && cp -r ./vuejs-unionsearch/dist/* ./src/main/resources/static/ && mvn spring-boot:run
